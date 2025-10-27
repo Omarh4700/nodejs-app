@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "nodejs-app"
-        IMAGE_TAG = "latest"
+        IMAGE_TAG = ${BUILD_NUMBER}
     }
 
     stages {
@@ -49,16 +49,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Cleaning up...'
-            sh 'docker system prune -f || true'
-        }
-        success {
-            echo ' Build and container run successful!'
-        }
-        failure {
-            echo ' Build failed.'
-        }
-    }
 }
