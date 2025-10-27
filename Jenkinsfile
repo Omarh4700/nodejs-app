@@ -42,7 +42,7 @@ pipeline {
 
                     // Run the container
                     sh """
-                        docker run -d -p 8000:8000 --name ${IMAGE_NAME} ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker run -d -p 3000:3000 --name ${IMAGE_NAME} ${IMAGE_NAME}:${IMAGE_TAG}
                     """
                 }
             }
